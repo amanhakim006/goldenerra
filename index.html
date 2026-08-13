@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome for Player Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,23 +18,28 @@
             box-sizing: border-box;
         }
 
+        /* 100vh Full Screen Setup across Mobile, PC, and TV */
+        html, body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; /* Prevents scrollbars for clean presentation */
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            /* Background image eh.png full visible */
+            /* Background image eh.png centered and scaled to cover full screen */
             background: #0d0d0d url('eh.png') no-repeat center center fixed;
             background-size: cover;
             position: relative;
             color: #ffffff;
-            overflow-x: hidden;
-            padding: 15px 10px 20px 10px;
+            padding: 2vh 2vw 4vh 2vw;
         }
 
-        /* Light overlay for background readability */
+        /* Subtle overlay for clean view */
         body::before {
             content: '';
             position: absolute;
@@ -42,62 +47,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.15);
             z-index: 1;
         }
 
-        /* Header / Subtitle & Image Section */
+        /* Title Image Section (Top Middle Aligned) */
         .images-section {
             position: relative;
             z-index: 2;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 1vh;
             width: 100%;
-            text-align: center;
-        }
-
-        .top-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #e2d1b3;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 215, 0, 0.3);
-            margin-bottom: -5px;
         }
 
         .img-top {
             width: 100%;
-            max-width: 520px;
+            max-width: 480px;
             height: auto;
             border: none;
             box-shadow: none;
             display: block;
             object-fit: contain;
-            filter: drop-shadow(0px 6px 14px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.75));
         }
 
-        /* Ultra Compact Music Player Box */
+        /* Compact Glassmorphic Music Player Box (Bottom Aligned) */
         .player-box {
             position: relative;
             z-index: 3;
             width: 100%;
-            max-width: 320px;
-            background: rgba(12, 12, 18, 0.8);
+            max-width: 310px;
+            background: rgba(12, 12, 18, 0.78);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 12px 16px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 12px rgba(255, 215, 0, 0.12);
-            margin-top: 15px;
+            margin-bottom: 1vh;
         }
 
-        /* Compact Song Info */
+        /* Song Info */
         .song-info {
             margin-bottom: 8px;
         }
@@ -117,7 +110,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* Compact Progress Bar */
+        /* Progress Bar */
         .progress-container {
             width: 100%;
             background: rgba(255, 255, 255, 0.15);
@@ -144,7 +137,7 @@
             margin-bottom: 10px;
         }
 
-        /* Compact Music Controls */
+        /* Controls */
         .controls {
             display: flex;
             justify-content: center;
@@ -190,25 +183,47 @@
             box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
         }
 
-        /* Mobile Tweaks */
-        @media (max-width: 480px) {
-            .top-subtitle {
-                font-size: 0.95rem;
-                letter-spacing: 3px;
+        /* Responsive Scaling for TV / Desktop / Mobile */
+        @media (min-width: 1024px) {
+            .img-top {
+                max-width: 580px;
             }
             .player-box {
-                max-width: 290px;
-                padding: 10px 14px;
+                max-width: 360px;
+                padding: 16px 20px;
             }
+            .song-title {
+                font-size: 1.1rem;
+            }
+            .artist-name {
+                font-size: 0.85rem;
+            }
+            .btn {
+                font-size: 1.1rem;
+                width: 36px;
+                height: 36px;
+            }
+            .btn-play {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
             .img-top {
-                max-width: 95%;
+                max-width: 90%;
+            }
+            .player-box {
+                max-width: 285px;
+                padding: 10px 14px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Middle Top Section with Text & Updated Image (1000644342.png) -->
+    <!-- Title Image Only -->
     <div class="images-section">
         <img src="1000644342.png" alt="Emraan Hashmi Title PNG" class="img-top">
     </div>
