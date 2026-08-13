@@ -31,10 +31,10 @@
             position: relative;
             color: #ffffff;
             overflow-x: hidden;
-            padding: 20px 15px 30px 15px;
+            padding: 10px 10px 20px 10px;
         }
 
-        /* Subtle overlay for natural depth */
+        /* Light overlay for readability */
         body::before {
             content: '';
             position: absolute;
@@ -42,86 +42,90 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
-        /* Images Section (No Box, No Border, Top Middle Aligned) */
+        /* Images Section (Enlarged, Zero Gap) */
         .images-section {
             position: relative;
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 0px; /* Zero gap between images */
+            margin-top: 5px;
             width: 100%;
         }
 
         .img-top {
             width: 100%;
-            max-width: 320px;
+            max-width: 520px; /* Bigger size */
             height: auto;
             border: none;
             box-shadow: none;
+            display: block;
             object-fit: contain;
-            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0px 6px 14px rgba(0, 0, 0, 0.6));
         }
 
         .img-bottom {
             width: 100%;
-            max-width: 360px;
+            max-width: 580px; /* Bigger size */
             height: auto;
             border: none;
             box-shadow: none;
+            display: block;
+            margin-top: 0px; /* Seamless fit right below the top image */
             object-fit: contain;
-            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0px 6px 14px rgba(0, 0, 0, 0.6));
         }
 
-        /* Music Player Box - Small Glassmorphic Box at Bottom */
+        /* Ultra Compact Music Player Box */
         .player-box {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 380px;
-            background: rgba(15, 15, 22, 0.75);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            max-width: 320px; /* Smaller, compact width */
+            background: rgba(12, 12, 18, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 20px;
-            padding: 20px 22px;
+            border-radius: 16px;
+            padding: 12px 16px; /* Compact padding */
             text-align: center;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.1);
-            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 12px rgba(255, 215, 0, 0.12);
+            margin-top: 15px;
         }
 
-        /* Song Info */
+        /* Compact Song Info */
         .song-info {
-            margin-bottom: 14px;
+            margin-bottom: 8px;
         }
 
         .song-title {
-            font-size: 1.15rem;
+            font-size: 0.98rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
+            line-height: 1.2;
         }
 
         .artist-name {
-            font-size: 0.82rem;
+            font-size: 0.75rem;
             color: #ffd700;
             font-weight: 300;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
-        /* Progress Bar */
+        /* Compact Progress Bar */
         .progress-container {
             width: 100%;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
-            height: 5px;
+            height: 4px;
             cursor: pointer;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             position: relative;
         }
 
@@ -136,29 +140,29 @@
         .time-stamps {
             display: flex;
             justify-content: space-between;
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             color: #b3b3b3;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
-        /* Music Controls */
+        /* Compact Music Controls */
         .controls {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
         }
 
         .btn {
             background: none;
             border: none;
             color: #d4af37;
-            font-size: 1.15rem;
+            font-size: 1rem;
             cursor: pointer;
             outline: none;
             transition: all 0.2s ease;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -172,44 +176,45 @@
         }
 
         .btn-play {
-            width: 50px;
-            height: 50px;
-            font-size: 1.3rem;
+            width: 42px;
+            height: 42px;
+            font-size: 1.1rem;
             background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
             color: #000000;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.35);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
         }
 
         .btn-play:hover {
             background: linear-gradient(135deg, #ffe033 0%, #e6be2e 100%);
             color: #000000;
             transform: scale(1.08);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
         }
 
         /* Mobile Tweaks */
         @media (max-width: 480px) {
             .player-box {
-                padding: 16px 18px;
+                max-width: 290px;
+                padding: 10px 14px;
             }
             .img-top {
-                max-width: 280px;
+                max-width: 95%;
             }
             .img-bottom {
-                max-width: 320px;
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Middle Top Images (No Box, No Border) -->
+    <!-- Middle Top Images (Enlarged & Zero Gap) -->
     <div class="images-section">
         <img src="1000644308.png" alt="Emraan Hashmi Top PNG" class="img-top">
         <img src="1000644320.png" alt="Emraan Hashmi Bottom PNG" class="img-bottom">
     </div>
 
-    <!-- Small Music Player Box at Bottom -->
+    <!-- Ultra Compact Music Player Box at Bottom -->
     <div class="player-box">
         <!-- Song Title & Artist -->
         <div class="song-info">
